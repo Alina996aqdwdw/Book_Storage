@@ -7,7 +7,7 @@ import 'src/books_storage_hash_keys.dart';
 import 'src/models/book_model.dart';
 
 
-part 'src/book_data_source_impl.dart';
+part 'src/books_data_source_impl.dart';
 
 abstract class BooksDataSource {
   factory BooksDataSource() => _BooksDataSourceImpl();
