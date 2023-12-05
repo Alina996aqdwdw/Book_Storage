@@ -1,5 +1,7 @@
 import 'package:book_storage/domain/models/book_info.dart';
+import 'package:book_storage/features/library/cubits/book_creation_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'widgets/short_book_info.dart';
 
@@ -34,7 +36,36 @@ class _LibraryPageState extends State<LibraryPage> {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          showDialog(
+            context: context,
+            builder: (context) {
+              final bookCreationCubit = BookCreationCubit();
+
+              return Dialog(
+                child: Column(
+                  children: [
+                    TextField(
+                      decoration: InputDecoration(
+                        labelText: 'Название'
+                      ),
+                      onChanged: bookCreationCubit.setTitle,
+                    ),
+                    BlocBuilder<BookCreationCubit, BookInfo>(
+                      bloc: bookCreationCubit,
+                      builder: (context, book) {
+                        return FilledButton(
+                          onPressed: book.title.isNotEmpty ? () {} : null,
+                          child: Text('Сохранить'),
+                        );
+                      },
+                    )
+                  ],
+                ),
+              );
+            },
+          );
+        },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),
