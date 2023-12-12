@@ -40,3 +40,13 @@ class BookInfo {
     return 'BookInfo(id: $id, title: $title, publisher: $publisher, author: $author, year: $year, pageCount: $pageCount)';
   }
 }
+
+extension BookCreateValidation on BookInfo {
+  bool get isTitleComplete {
+    return title.isNotEmpty;
+  }
+
+  bool get isCompleted {
+    return isTitleComplete && isTitleComplete;
+  }
+}

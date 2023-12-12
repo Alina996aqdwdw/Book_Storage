@@ -3,10 +3,10 @@ import 'package:book_storage/domain/models/book_info.dart';
 import 'package:flutter/material.dart';
 
 class BookShortInfoWidget extends StatelessWidget {
-  final BookInfo bookInfo;
+  final BookInfo book;
 
   const BookShortInfoWidget({
-    required this.bookInfo,
+    required this.book,
     super.key,
   });
 
@@ -29,26 +29,26 @@ class BookShortInfoWidget extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              bookInfo.title,
+              book.title,
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
               ),
             ),
-            if (bookInfo.author.isEmpty)
-              Text(bookInfo.author).paddingOnly(top: 4),
+            if (book.author.isEmpty)
+              Text(book.author).paddingOnly(top: 4),
             Row(
               children: [
                 Text('Год: '),
-                Text(bookInfo.year.toString()),
+                Text(book.year.toString()),
               ],
             ).paddingOnly(top: 4),
             Row(
               children: [
                 Text('Издательство: '),
-                Text(bookInfo.publisher),
+                Text(book.publisher),
               ],
             ).paddingOnly(top: 4),
-            Text('${bookInfo.pageCount} стр.').paddingOnly(top: 4),
+            Text('${book.pageCount} стр.').paddingOnly(top: 4),
           ],
         ).paddingOnly(left: 10),
       ],
