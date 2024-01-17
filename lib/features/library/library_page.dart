@@ -126,6 +126,30 @@ class BookCreationDialog extends StatelessWidget {
                 ),
                 onChanged: bookCreationCubit.setTitle,
               ),
+              TextField(
+                decoration: InputDecoration(
+                  labelText: 'Автор',
+                  helperText:
+                  book.isTitleComplete ? null : '* обязательное поле',
+                ),
+                onChanged: bookCreationCubit.setAuthor,
+              ),
+              TextField(
+                decoration: InputDecoration(
+                  labelText: 'Издательство',
+                //  helperText:
+              //    book.isTitleComplete ? null : '* обязательное поле',
+                ),
+                onChanged: bookCreationCubit.setPublisher,
+              ),
+              TextField(
+                decoration: InputDecoration(
+                  labelText: 'Год',
+                //  helperText:
+              //    book.isTitleComplete ? null : '* обязательное поле',
+                ),
+                onChanged: bookCreationCubit.setYear,
+              ),
               FilledButton(
                 onPressed: book.isCompleted ? () {} : null,
                 child: Text('Сохранить'),
